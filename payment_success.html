@@ -5,8 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Payment Successful - GoCuci</title>
 
-  <style>
-    /* 🌈 Background animation */
+<style>
+    /* 🌈 Gradient background animation */
     body {
       margin: 0;
       padding: 0;
@@ -15,7 +15,7 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      background: linear-gradient(135deg, #0D47A1, #1976D2, #7E57C2, #FFFFFF);
+      background: linear-gradient(135deg, #6a1b9a, #7e57c2, #2196f3);
       background-size: 400% 400%;
       animation: gradient 10s ease infinite;
       color: #fff;
@@ -30,25 +30,23 @@
 
     /* 💎 Glass card */
     .card {
-      background: rgba(255, 255, 255, 0.15);
-      backdrop-filter: blur(15px);
+      background: rgba(255, 255, 255, 0.12);
+      backdrop-filter: blur(20px);
       padding: 40px 30px;
       border-radius: 20px;
-      box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
       max-width: 400px;
       width: 90%;
     }
 
-    /* 🟢 Success animation container */
+    /* 🧼 Wrapper for logo + checkmark */
     .success-wrapper {
       position: relative;
-      display: inline-block;
-      width: 100px;
-      height: 100px;
-      margin-bottom: 25px;
+      width: 110px;
+      height: 110px;
+      margin: 0 auto 25px;
     }
 
-    /* 🧼 Logo behind */
     .logo {
       width: 100%;
       height: 100%;
@@ -60,40 +58,53 @@
       top: 0;
       left: 0;
       z-index: 1;
+      animation: logoPop 0.8s ease-out forwards;
     }
 
-    /* ✅ Checkmark ring overlay */
+    @keyframes logoPop {
+      0% { transform: scale(0.6); opacity: 0; }
+      100% { transform: scale(1); opacity: 1; }
+    }
+
+    /* ✅ Animated checkmark ring overlay */
     .checkmark {
       position: absolute;
-      top: 0;
-      left: 0;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%) scale(0.9);
       width: 100%;
       height: 100%;
       border-radius: 50%;
       border: 4px solid #4CAF50;
       box-sizing: border-box;
-      animation: popRing 0.6s ease-out forwards;
       z-index: 2;
+      opacity: 0;
+      animation: popRing 0.5s ease-out 0.3s forwards, glow 2s ease-in-out 0.6s infinite alternate;
     }
 
     @keyframes popRing {
-      0% { transform: scale(0.5); opacity: 0; }
-      100% { transform: scale(1); opacity: 1; }
+      0% { transform: translate(-50%, -50%) scale(0.5); opacity: 0; }
+      100% { transform: translate(-50%, -50%) scale(0.9); opacity: 1; }
     }
 
-    /* 🟩 Checkmark animation */
+    @keyframes glow {
+      from { box-shadow: 0 0 0px #4CAF50; }
+      to { box-shadow: 0 0 15px #4CAF50; }
+    }
+
+    /* 🟩 Animated checkmark tick */
     .checkmark::after {
       content: '';
       position: absolute;
-      left: 34px;
-      top: 24px;
+      left: 38px;
+      top: 28px;
       width: 20px;
       height: 40px;
       border-right: 4px solid #4CAF50;
       border-bottom: 4px solid #4CAF50;
       transform: rotate(45deg) scale(0);
       opacity: 0;
-      animation: draw 0.8s ease-out 0.4s forwards;
+      animation: draw 0.6s ease-out 0.8s forwards;
     }
 
     @keyframes draw {
@@ -101,11 +112,11 @@
       100% { transform: rotate(45deg) scale(1); opacity: 1; }
     }
 
-    /* 🏷️ Text styles */
+    /* 🏷️ Text styling */
     h1 {
       font-size: 24px;
       margin-bottom: 10px;
-      letter-spacing: 1px;
+      letter-spacing: 0.5px;
     }
 
     p {
@@ -130,10 +141,6 @@
     .btn:hover {
       background: #43A047;
     }
-  </style>
-
-
-    
   </style>
 </head>
 
