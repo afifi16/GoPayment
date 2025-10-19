@@ -6,7 +6,7 @@
   <title>Payment Successful - GoCuci</title>
 
 <style>
-    /* 🌈 Gradient background animation */
+    /* 🌈 Background gradient */
     body {
       margin: 0;
       padding: 0;
@@ -39,7 +39,7 @@
       width: 90%;
     }
 
-    /* 🧼 Wrapper for logo + checkmark */
+    /* 🧼 Wrapper for logo + ring + checkmark */
     .success-wrapper {
       position: relative;
       width: 110px;
@@ -47,44 +47,44 @@
       margin: 0 auto 25px;
     }
 
+    /* 🧽 Logo (background image) */
     .logo {
-      width: 100%;
-      height: 100%;
-      object-fit: contain;
-      border-radius: 50%;
-      background: rgba(255, 255, 255, 0.2);
-      padding: 10px;
       position: absolute;
-      top: 0;
-      left: 0;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 90px;
+      height: 90px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.15);
+      padding: 10px;
+      object-fit: contain;
       z-index: 1;
       animation: logoPop 0.8s ease-out forwards;
     }
 
     @keyframes logoPop {
-      0% { transform: scale(0.6); opacity: 0; }
-      100% { transform: scale(1); opacity: 1; }
+      0% { transform: translate(-50%, -50%) scale(0.6); opacity: 0; }
+      100% { transform: translate(-50%, -50%) scale(1); opacity: 1; }
     }
 
-    /* ✅ Animated checkmark ring overlay */
-    .checkmark {
+    /* 🟢 Green ring around logo */
+    .ring {
       position: absolute;
       top: 50%;
       left: 50%;
-      transform: translate(-50%, -50%) scale(0.9);
-      width: 100%;
-      height: 100%;
-      border-radius: 50%;
+      transform: translate(-50%, -50%);
+      width: 100px;
+      height: 100px;
       border: 4px solid #4CAF50;
-      box-sizing: border-box;
+      border-radius: 50%;
       z-index: 2;
-      opacity: 0;
-      animation: popRing 0.5s ease-out 0.3s forwards, glow 2s ease-in-out 0.6s infinite alternate;
+      animation: popRing 0.6s ease-out forwards, glow 2s ease-in-out 1s infinite alternate;
     }
 
     @keyframes popRing {
       0% { transform: translate(-50%, -50%) scale(0.5); opacity: 0; }
-      100% { transform: translate(-50%, -50%) scale(0.9); opacity: 1; }
+      100% { transform: translate(-50%, -50%) scale(1); opacity: 1; }
     }
 
     @keyframes glow {
@@ -92,22 +92,22 @@
       to { box-shadow: 0 0 15px #4CAF50; }
     }
 
-    /* 🟩 Animated checkmark tick */
-    .checkmark::after {
+    /* ✅ Checkmark (tick) */
+    .ring::after {
       content: '';
       position: absolute;
-      left: 38px;
       top: 28px;
-      width: 20px;
+      left: 34px;
+      width: 22px;
       height: 40px;
       border-right: 4px solid #4CAF50;
       border-bottom: 4px solid #4CAF50;
       transform: rotate(45deg) scale(0);
       opacity: 0;
-      animation: draw 0.6s ease-out 0.8s forwards;
+      animation: drawCheck 0.5s ease-out 0.8s forwards;
     }
 
-    @keyframes draw {
+    @keyframes drawCheck {
       0% { transform: rotate(45deg) scale(0); opacity: 0; }
       100% { transform: rotate(45deg) scale(1); opacity: 1; }
     }
@@ -148,7 +148,7 @@
   <div class="card">
     <div class="success-wrapper">
       <img src="gocuci_logo.png" alt="GoCuci Logo" class="logo" />
-      <div class="checkmark"></div>
+      <div class="ring"></div>
     </div>
     <h1>Payment Successful!</h1>
     <p>Thank you for your deposit. Your GoCuci booking has been confirmed successfully.</p>
