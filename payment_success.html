@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Payment Successful - GoCuci</title>
 
-<style>
+  <style>
     /* 🌈 Background gradient */
     body {
       margin: 0;
@@ -141,6 +141,14 @@
     .btn:hover {
       background: #43A047;
     }
+
+    /* ⏳ Auto redirect text */
+    .auto {
+      font-size: 14px;
+      color: #b3e5fc;
+      margin-top: 8px;
+      opacity: 0.8;
+    }
   </style>
 </head>
 
@@ -153,6 +161,14 @@
     <h1>Payment Successful!</h1>
     <p>Thank you for your deposit. Your GoCuci booking has been confirmed successfully.</p>
     <a href="gocuci://payment/success" class="btn">Return to App</a>
+    <div class="auto">Redirecting automatically in 3 seconds...</div>
   </div>
+
+  <!-- 🚀 Auto redirect to app after 3 seconds -->
+  <script>
+    setTimeout(() => {
+      window.location.href = "gocuci://payment/success";
+    }, 3000);
+  </script>
 </body>
 </html>
